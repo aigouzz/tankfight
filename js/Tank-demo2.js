@@ -43,7 +43,7 @@ Tank.prototype.init = function(){
     this.oParent.appendChild(this.obj);
     this.initLocation();
     this.obj.index = this.index;
-}
+};
 /**
  * 移动时是否碰撞
  */
@@ -59,7 +59,7 @@ Tank.prototype.isCollide = function(dir,bgPosLeft,bgPosTop){
         }
     }
     return false;
-}
+};
 /**
  * 向左移动
  */
@@ -76,7 +76,7 @@ Tank.prototype.moveLeft = function(){
             return false;          // 没有碰撞需要就不需要转向
         }
     }
-}
+};
 /**
  * 向上移动
  */
@@ -93,7 +93,7 @@ Tank.prototype.moveTop = function(){
             return false;	          // 没有碰撞需要就不需要转向
         }
     }
-}
+};
 /**
  * 向右移动
  */
@@ -110,7 +110,7 @@ Tank.prototype.moveRight = function(){
             return false;	         // 没有碰撞需要就不需要转向
         }
     }
-}
+};
 /**
  * 向下移动
  */
@@ -126,7 +126,7 @@ Tank.prototype.moveDown = function(){
     }else{
         return false;	                // 没有碰撞需要就不需要转向
     }
-}
+};
 /**
  * 方向转变90度时，重新设置位置
  */
@@ -153,7 +153,7 @@ Tank.prototype.setPosition = function(){
         }
     }
     this.prevDir = this.dir;
-}
+};
 /**
  * 获取所有可碰撞元素：class为wall iron的元素
  * return {aAll} 所有可碰撞元素组成的数组

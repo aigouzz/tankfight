@@ -21,11 +21,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tankfight.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tankfight.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tankfight.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49873418">
-              <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
+            <state vertical-scroll-proportion="-1.4444444">
+              <caret line="71" column="10" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyTank-demo3.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/MyTank-demo3.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Score-demo1.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Score-demo1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tank-demo2.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/Tank-demo2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.048919227">
+              <caret line="238" column="21" selection-start-line="238" selection-start-column="21" selection-end-line="238" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -47,9 +79,7 @@
         <option value="$PROJECT_DIR$/js/Constant-demo2.js" />
         <option value="$PROJECT_DIR$/js/Game-demo1.js" />
         <option value="$PROJECT_DIR$/js/Map-demo2.js" />
-        <option value="$PROJECT_DIR$/js/MyTank-demo3.js" />
         <option value="$PROJECT_DIR$/js/Score-demo1.js" />
-        <option value="$PROJECT_DIR$/js/Tank-demo2.js" />
         <option value="$PROJECT_DIR$/js/lec-core.js" />
         <option value="$PROJECT_DIR$/tankfight.html" />
         <option value="$PROJECT_DIR$/js/CreateObj.js" />
@@ -57,6 +87,8 @@
         <option value="$PROJECT_DIR$/js/Bullet-demo2.js" />
         <option value="$PROJECT_DIR$/js/Flick-demo2.js" />
         <option value="$PROJECT_DIR$/js/Music-demo1.js" />
+        <option value="$PROJECT_DIR$/js/MyTank-demo3.js" />
+        <option value="$PROJECT_DIR$/js/Tank-demo2.js" />
       </list>
     </option>
   </component>
@@ -288,30 +320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Tank-demo2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.225">
-          <caret line="173" column="2" selection-start-line="173" selection-start-column="2" selection-end-line="173" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Score-demo1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/MyTank-demo3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.225">
-          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/Music-demo1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.475">
@@ -330,8 +338,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tankfight.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49873418">
-          <caret line="98" column="21" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
+        <state vertical-scroll-proportion="-1.4444444">
+          <caret line="71" column="10" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/MyTank-demo3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Score-demo1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Tank-demo2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.048919227">
+          <caret line="238" column="21" selection-start-line="238" selection-start-column="21" selection-end-line="238" selection-end-column="21" />
           <folding />
         </state>
       </provider>
