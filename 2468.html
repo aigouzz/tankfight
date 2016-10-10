@@ -29,7 +29,6 @@
     </style>
     <script type="text/javascript">
         window.onload = function(){
-
             var oCon = document.getElementById('con');
             var oScroe = document.getElementById('scroe');
             var oMask = document.getElementById('mask');
@@ -58,9 +57,11 @@
             var loadCur = 0;
             var isOK = true;
             var fn = {
+                /* 给img添加src */
                 loadImage:function () {
                     oLoadImg.src = arrLoadImg[loadCur];
                 },
+                /* 开始添加数字 */
                 begin:function (){
                     oP.innerHTML = 0;
                     addScroe = 0;
@@ -69,6 +70,7 @@
                     fn.init();
                     fn.init();
                 },
+                /* 移动中数字检测 */
                 isMove:function(k,a,b,c,d){
                     var arr = [a,b,c,d];
                     arrCollapse = [];
@@ -82,9 +84,8 @@
                     }
 
                     if(k==37||k==38){
-
                         for(var i=0;i<arrCollapse.length;i++){
-                            if(arrCollapse[i+1]&&arrCollapse[i]==arrCollapse[i+1]){
+                            if(arrCollapse[i+1] && arrCollapse[i]==arrCollapse[i+1]){
                                 addScroe += arrCollapse[i];
                                 arrCollapse[i] +=1;
                                 arrCollapse.splice(i+1,1);
@@ -123,15 +124,15 @@
                         fn.startMove(k,arrCellAll,arrCollapseAll);
                     }
                 },
+                /* 开始移动 */
                 startMove:function (k,arr,arrNum){
-
                     var dis = null;
                     var speed = null;
                     var timer = null;
 
                     if(k==39||k==40){
-                        for(var i=0;i<arr.length;i++){
-                            for(var j=0;j<arr[i].length;j++){
+                        for( var i=0;i < arr.length;i++ ){
+                            for(var j=0;j < arr[i].length;j++){
                                 if(arr[i].length==4) break;
                                 arr[i].unshift(null);
                                 arrNum[i].unshift(0);
@@ -141,29 +142,28 @@
                     for(var i=0;i<arr.length;i++){
                         for(var j=0;j<arr[i].length;j++){
                             if(k==37){
-                                if(j!=arr[i][j].X||arrNum[i][j]!=arr[i][j].t){
+                                if(j!=arr[i][j].X || arrNum[i][j]!=arr[i][j].t){
                                     moveNum++;
                                 }
                             } else if(k==38){
-                                if(j!=arr[i][j].Y||arrNum[i][j]!=arr[i][j].t){
+                                if(j!=arr[i][j].Y || arrNum[i][j]!=arr[i][j].t){
                                     moveNum++;
                                 }
                             } else if(k==39){
-                                if(arr[i][j]&&j!=arr[i][j].X||arr[i][j]&&arrNum[i][j]!=arr[i][j].t){
+                                if(arr[i][j]&&j!=arr[i][j].X||arr[i][j] && arrNum[i][j]!=arr[i][j].t){
                                     moveNum++;
                                 }
                             } else if(k==40){
-                                if(arr[i][j]&&j!=arr[i][j].Y||arr[i][j]&&arrNum[i][j]!=arr[i][j].t){
+                                if(arr[i][j]&&j!=arr[i][j].Y||arr[i][j] && arrNum[i][j]!=arr[i][j].t){
                                     moveNum++;
                                 }
                             }
                         }
                     }
-
-                    for(var i=0;i<arrNum.length;i++){
+                    for( var i=0;i<arrNum.length;i++ ){
                         for(var j=0;j<arrNum[i].length;j++){
                             if(arrNum[i][j]!=0)showNum++;
-                            if(arrNum[i][j]==11&&show2048){
+                            if(arrNum[i][j]==11 && show2048){
                                 is2048 = true;
                             }
                             if(arrNum[i][j]==13){
@@ -184,7 +184,7 @@
 
                     isOK = false;
 
-                    if(k==37){
+                    if( k == 37 ){
                         for(var i=0;i<arr.length;i++){
                             for(var j=0;j<arr[i].length;j++){
                                 if(j!=arr[i][j].X||arrNum[i][j]!=arr[i][j].t){
@@ -199,7 +199,7 @@
                                 }
                             }
                         }
-                    } else if(k==38){
+                    } else if( k == 38 ){
                         for(var i=0;i<arr.length;i++){
                             for(var j=0;j<arr[i].length;j++){
                                 if(j!=arr[i][j].Y||arrNum[i][j]!=arr[i][j].t){
@@ -232,7 +232,7 @@
                     } else if(k==40){
                         for(var i=0;i<arr.length;i++){
                             for(var j=arr[i].length;j>=0;j--){
-                                if(arr[i][j]&&j!=arr[i][j].Y||arr[i][j]&&arrNum[i][j]!=arr[i][j].t){
+                                if(arr[i][j] && j!=arr[i][j].Y || arr[i][j] && arrNum[i][j]!=arr[i][j].t){
                                     dis = (j-arr[i][j].Y)*109;
                                     speed = (j-arr[i][j].Y)*50;
                                     fn.doMove(arr[i][j].children[0],speed,'top',dis,function(){
@@ -376,7 +376,6 @@
                 },
                 doMove: function (obj,num,attr,target,endFn){
                     num = parseInt(fn.getStyle(obj,attr))<target?num:-num;
-
                     clearInterval(obj.timer);
                     obj.timer = setInterval(function(){
                         var speed = parseInt(fn.getStyle(obj,attr))+num;
@@ -384,7 +383,7 @@
                             speed = target;
                         }
                         obj.style[attr] = speed + 'px';
-                        if(speed==target){
+                        if(speed == target){
                             clearInterval(obj.timer);
                             if(typeof endFn=='function'){
                                 endFn();
@@ -413,7 +412,7 @@
             oBtn.onclick = function(){
                 if(!isWin||is8192){
                     fn.fnReset();
-                    begin();
+                    fn.begin();
                     oMask.style.display = oJump.style.display = 'none';
                     isWin = true;
                     is2048 = false;
