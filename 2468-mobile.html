@@ -448,6 +448,76 @@
                         break;
                 }
             };
+            var startX = 0;
+            var startY = 0;
+            var moveEndX = 0;
+            var moveEndY = 0;
+            $("body").on("touchstart", function(e) {
+                e.preventDefault();
+                startX = e.originalEvent.changedTouches[0].pageX, startY = e.originalEvent.changedTouches[0].pageY;
+            });
+            $("body").on("touchmove", function(e) {
+                if(!isOK) return;
+                var ev = e || event;
+                ev.preventDefault();
+                arrCellAll = [];
+                arrCollapseAll = [];
+                moveNum = 0;
+                showNum = 0;
+                if(fn.getStyle(oMask,'display')!="none"){
+                    return;
+                }
+                switch(ev.keyCode){
+                    case 37:
+                        for(var i=0;i<4;i++){
+                            fn.isMove(37,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
+                        }
+                        break;
+                    case 38:
+                        for(var i=0;i<4;i++){
+                            fn.isMove(38,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
+                        }
+                        break;
+                    case 39:
+                        for(var i=0;i<4;i++){
+                            fn.isMove(39,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
+                        }
+                        break;
+                    case 40:
+                        for(var i=0;i<4;i++){
+                            fn.isMove(40,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
+                        }
+                        break;
+                }
+                moveEndX = e.originalEvent.changedTouches[0].pageX,
+                        moveEndY = e.originalEvent.changedTouches[0].pageY,
+                        X = moveEndX - startX,
+                        Y = moveEndY - startY;
+
+                if ( X > 0 ) {
+                    for(var i=0;i<4;i++){
+                        fn.isMove(37,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
+                    }
+                }
+                else if ( X < 0 ) {
+                    for(var i=0;i<4;i++){
+                        fn.isMove(39,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
+                    }
+                }
+                else if ( Y > 0) {
+                    for(var i=0;i<4;i++){
+                        fn.isMove(38,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
+                    }
+                }
+                else if ( Y < 0 ) {
+                    for(var i=0;i<4;i++){
+                        fn.isMove(40,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
+                    }
+                }
+                else{
+                    return;
+                }
+            });
         }
     </script>
 </head>
