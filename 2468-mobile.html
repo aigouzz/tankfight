@@ -21,6 +21,7 @@
         #jump p{margin-top:30px;height:60px;line-height:60px;text-align:center;color:#fff;font-weight: bold;}
 
     </style>
+    <script src="js/jquery.min.js"></script>
     <script type="text/javascript">
         window.onload = function(){
             var oCon = document.getElementById('con');
@@ -415,7 +416,7 @@
                     is2048 = false;
                 }
             };
-            document.onkeydown = function(ev){
+            /*document.onkeydown = function(ev){
                 if(!isOK) return;
                 var ev = ev || event;
                 arrCellAll = [];
@@ -447,7 +448,7 @@
                         }
                         break;
                 }
-            };
+            };*/
             var startX = 0;
             var startY = 0;
             var moveEndX = 0;
@@ -467,28 +468,6 @@
                 if(fn.getStyle(oMask,'display')!="none"){
                     return;
                 }
-                switch(ev.keyCode){
-                    case 37:
-                        for(var i=0;i<4;i++){
-                            fn.isMove(37,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
-                        }
-                        break;
-                    case 38:
-                        for(var i=0;i<4;i++){
-                            fn.isMove(38,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
-                        }
-                        break;
-                    case 39:
-                        for(var i=0;i<4;i++){
-                            fn.isMove(39,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
-                        }
-                        break;
-                    case 40:
-                        for(var i=0;i<4;i++){
-                            fn.isMove(40,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
-                        }
-                        break;
-                }
                 moveEndX = e.originalEvent.changedTouches[0].pageX,
                         moveEndY = e.originalEvent.changedTouches[0].pageY,
                         X = moveEndX - startX,
@@ -496,23 +475,28 @@
 
                 if ( X > 0 ) {
                     for(var i=0;i<4;i++){
-                        fn.isMove(37,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
-                    }
-                }
-                else if ( X < 0 ) {
-                    for(var i=0;i<4;i++){
                         fn.isMove(39,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
                     }
+                    return;
+                }
+                else if ( X < 0 ) {
+
+                    for(var i=0;i<4;i++){
+                        fn.isMove(37,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
+                    }
+                    return;
                 }
                 else if ( Y > 0) {
                     for(var i=0;i<4;i++){
-                        fn.isMove(38,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
+                        fn.isMove(40,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
                     }
+                    return;
                 }
                 else if ( Y < 0 ) {
                     for(var i=0;i<4;i++){
-                        fn.isMove(40,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
+                        fn.isMove(38,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
                     }
+                    return;
                 }
                 else{
                     return;
