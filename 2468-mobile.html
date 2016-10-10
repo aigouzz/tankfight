@@ -2,45 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2048</title>
     <link rel="icon" href="images/cube_2048.png" />
     <style>
-        html,body{height:100%;}
+        html,body{height:100%;margin:0;padding:0;}
         body{background:#bfbfff url(images/body_bg.gif) repeat-x 0 bottom;}
         p,input{margin:0;padding:0;}
-        .wrap{width:320px;margin:0 auto 0;position:relative;top:120px;}
-        #scroe{width:262px;height:185px;background:url(images/scroe.png) no-repeat;position:absolute;left:-90px;top:-80px;}
-        #scroe .scroeNum{height:50px;text-align: center;font-size:30px;line-height:50px;font-weigth:bold;color:#fff;font-family: Arial;}
-        .summary{width:300px;font-size:14px;line-height: 18px;color:#fff;position:absolute;bottom:200px;left:50%;margin-left: 180px;}
 
-        #con{width: 320px;height: 436px;background: url(images/bg.png) no-repeat;margin-top:-30px;}
-        #con div{float:left;width:80px;height:109px;position: relative;}
-        #con img{vertical-align:top;border:none;width:80px;height:109px;position: absolute;top:0;left:0;}
+        #con{width: 100% ;height: 82%;background: url(images/bg.png) no-repeat;max-width:640px;
+            background-size: 100% 100%;-moz-background-size: 100% 100%;-o-background-size: 100% 100%;-webkit-background-size: 100% 100%;}
+        #con div{float:left;width:25%;height:25%;position: relative;}
+        #con img{vertical-align:top;border:none;width:100%;height:100%;position: absolute;top:0;left:0;}
 
         #mask{width:100%;height:100%;background:#000;border-radius:10px;opacity: 0.1;filter:alpha(opacity:10);position:absolute;left:0;top:0;display:none;}
         #jump{width:260px;height:180px;background:#eccbf0;box-shadow:inset 0 0 8px #6fd9f0;position:absolute;top:150px;left:30px;border-radius:10px;display:none;}
         #jump input{width:100px;height:36px;margin:30px 80px;}
         #jump p{margin-top:30px;height:60px;line-height:60px;text-align:center;color:#fff;font-weight: bold;}
 
-        #load{width:100%;height:100%;background:#bfbfff;position:absolute;top:0;left:0;z-index:1;}
-        #loadProg {width:300px;height:30px;border:1px solid #777;position:absolute;top:50%;left:50%;margin:-15px 0 0 -150px;border-radius: 5px;}
-        #loadProg .loadBar{width:0;height:30px;background:#ccc;opacity: 0.6;filter:alpha(opacity:60);}
-        #loadProg .loadNum{font:bold 14px/30px Arial;position:absolute;top:0;left:50%;}
     </style>
     <script type="text/javascript">
         window.onload = function(){
             var oCon = document.getElementById('con');
-            var oScroe = document.getElementById('scroe');
             var oMask = document.getElementById('mask');
             var oJump = document.getElementById('jump');
-            var oLoad = document.getElementById('load');
-            var oLoadProg = document.getElementById('loadProg');
-            var aLoadDiv = oLoadProg.getElementsByTagName('div');
             var oText = oJump.getElementsByTagName('P')[0];
             var oBtn = oJump.getElementsByTagName('input')[0];
             var aDiv = oCon.getElementsByTagName('div');
             var aImg = oCon.getElementsByTagName('img');
-            var oP = oScroe.getElementsByTagName('P')[0];
             var arrText = ['不好意思，您输了！','恭喜您，已达到2048！','您的成就已载入史册！'];
             var arrLoadImg = ['images/body_bg.gif','images/scroe.png','images/bg.png','images/cube_2.png','images/cube_4.png','images/cube_8.png','images/cube_16.png','images/cube_32.png','images/cube_64.png','images/cube_128.png','images/cube_256.png','images/cube_512.png','images/cube_1024.png','images/cube_2048.png','images/cube_4096.png','images/cube_8192.png'];
             var arrCellAll = [];
@@ -63,7 +52,6 @@
                 },
                 /* 开始添加数字 */
                 begin:function (){
-                    oP.innerHTML = 0;
                     addScroe = 0;
                     fn.setAttr();
                     fn.init();
@@ -100,7 +88,7 @@
                             }
                         }
                     } else{
-                        for(var i=arrCollapse.length-1;i>=0;i--){
+                        for(var i = arrCollapse.length-1;i>=0;i--){
                             if(i>0&&arrCollapse[i]==arrCollapse[i-1]){
                                 addScroe += arrCollapse[i]*2;
                                 arrCollapse[i] +=1;
@@ -270,7 +258,6 @@
                             }
                         }
                     }
-                    oP.innerHTML = addScroe*2;
 
                     if(showNum==0){
                         fn.init();
@@ -399,7 +386,7 @@
             };
 
             fn.loadImage();
-            oLoadImg.onload = function() {
+           /* oLoadImg.onload = function() {
                 loadCur++;
                 var iScale = loadCur / arrLoadImg.length;
                 aLoadDiv[1].innerHTML = parseInt(iScale * 100) + '%';
@@ -409,7 +396,7 @@
                 } else if(loadCur==arrLoadImg.length){
                     oLoad.style.display = 'none';
                 }
-            };
+            };*/
             fn.begin();
             oBtn.onclick = function(){
                 if(!isWin||is8192){
@@ -465,40 +452,28 @@
     </script>
 </head>
 <body>
-<p class="summary">玩法说明：<br>1.用键盘上下左右键控制数字走向<br>2.当点击了一个方向时，格子中的数字会全部往那个方向移动，直到不能再移动，如果有相同的数字则会合并<br>3.当格子中不再有可移动和可合并的数字时，游戏结束</p>
-<div class="wrap">
-    <div id="scroe">
-        <p class="scroeNum">0</p>
-    </div>
-    <div id="con">
-        <div id="00"></div>
-        <div id="01"></div>
-        <div id="02"></div>
-        <div id="03"></div>
-        <div id="10"></div>
-        <div id="11"></div>
-        <div id="12"></div>
-        <div id="13"></div>
-        <div id="20"></div>
-        <div id="21"></div>
-        <div id="22"></div>
-        <div id="23"></div>
-        <div id="30"></div>
-        <div id="31"></div>
-        <div id="32"></div>
-        <div id="33"></div>
-    </div>
-    <div id="mask"></div>
-    <div id="jump">
-        <p>恭喜你已经达到2048</p>
-        <input type="button" value="继续挑战">
-    </div>
+<div id="con">
+    <div id="00"></div>
+    <div id="01"></div>
+    <div id="02"></div>
+    <div id="03"></div>
+    <div id="10"></div>
+    <div id="11"></div>
+    <div id="12"></div>
+    <div id="13"></div>
+    <div id="20"></div>
+    <div id="21"></div>
+    <div id="22"></div>
+    <div id="23"></div>
+    <div id="30"></div>
+    <div id="31"></div>
+    <div id="32"></div>
+    <div id="33"></div>
 </div>
-<div id="load" style="display: none;">
-    <div id="loadProg">
-        <div class="loadBar" style="width: 300px;"></div>
-        <div class="loadNum">100%</div>
-    </div>
+<div id="mask"></div>
+<div id="jump">
+    <p>恭喜你已经达到2048</p>
+    <input type="button" value="继续挑战">
 </div>
 </body>
 </html>
