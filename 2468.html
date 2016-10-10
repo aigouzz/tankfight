@@ -60,7 +60,6 @@
 
             loadImage();
             function loadImage() {
-
                 oLoadImg.src = arrLoadImg[loadCur];
             }
             oLoadImg.onload = function() {
@@ -74,7 +73,7 @@
                 } else if(loadCur==arrLoadImg.length){
                     oLoad.style.display = 'none';
                 }
-            }
+            };
 
             begin();
             function begin(){
