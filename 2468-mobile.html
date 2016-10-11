@@ -466,7 +466,7 @@
                 moveNum = 0;
                 showNum = 0;
                 if(fn.getStyle(oMask,'display')!="none"){
-                    return;
+                    return false;
                 }
                 moveEndX = e.originalEvent.changedTouches[0].pageX, moveEndY = e.originalEvent.changedTouches[0].pageY, X = moveEndX - startX , Y = moveEndY - startY;
 
