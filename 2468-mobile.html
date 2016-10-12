@@ -387,17 +387,6 @@
             };
 
             fn.loadImage();
-           /* oLoadImg.onload = function() {
-                loadCur++;
-                var iScale = loadCur / arrLoadImg.length;
-                aLoadDiv[1].innerHTML = parseInt(iScale * 100) + '%';
-                aLoadDiv[0].style.width = 300 * iScale + 'px';
-                if (loadCur < arrLoadImg.length) {
-                    fn.loadImage();
-                } else if(loadCur==arrLoadImg.length){
-                    oLoad.style.display = 'none';
-                }
-            };*/
             fn.begin();
             oBtn.ontouchend = function(){
                 if(!isWin||is8192){
@@ -416,39 +405,6 @@
                     is2048 = false;
                 }
             };
-            /*document.onkeydown = function(ev){
-                if(!isOK) return;
-                var ev = ev || event;
-                arrCellAll = [];
-                arrCollapseAll = [];
-                moveNum = 0;
-                showNum = 0;
-                if(fn.getStyle(oMask,'display')!="none"){
-                    return;
-                }
-                switch(ev.keyCode){
-                    case 37:
-                        for(var i=0;i<4;i++){
-                            fn.isMove(37,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
-                        }
-                        break;
-                    case 38:
-                        for(var i=0;i<4;i++){
-                            fn.isMove(38,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
-                        }
-                        break;
-                    case 39:
-                        for(var i=0;i<4;i++){
-                            fn.isMove(39,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
-                        }
-                        break;
-                    case 40:
-                        for(var i=0;i<4;i++){
-                            fn.isMove(40,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
-                        }
-                        break;
-                }
-            };*/
             var startX = 0;
             var startY = 0;
             var moveEndX = 0;
