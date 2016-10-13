@@ -444,7 +444,7 @@
                     }
                     return;
                 }
-                else if ( (X > 0 && Y < 0 && Math.abs(X) < Y) || (X < 0 && Y < 0 && X > Y ) ) {
+                else if ( (X > 0 && Y < 0 && X < Math.abs(Y)) || (X < 0 && Y < 0 && X > Y ) ) {
                     for(var i=0;i<4;i++){
                         fn.isMove(38,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
                     }
