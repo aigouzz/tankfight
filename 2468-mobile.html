@@ -17,7 +17,6 @@
         #jump{width:260px;height:180px;background:#eccbf0;box-shadow:inset 0 0 8px #6fd9f0;position:absolute;top:150px;left:30px;border-radius:10px;display:none;}
         #jump input{width:100px;height:36px;margin:30px 80px;}
         #jump p{margin-top:30px;height:60px;line-height:60px;text-align:center;color:#fff;font-weight: bold;}
-
     </style>
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript">
@@ -383,7 +382,7 @@
                     return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
                 }
             };
-
+            /* 开始事件 */
             fn.loadImage();
             fn.begin();
             oBtn.ontouchend = function(){
