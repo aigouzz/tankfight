@@ -42,7 +42,7 @@ body {
   -webkit-border-radius: 90px;
   position: absolute;
   left: 160px;
-  top: 270px;
+  top: 220px;
 }
 #img_bg {
   width: 180px;
@@ -52,7 +52,7 @@ body {
   background-color: white;
   position: absolute;
   left: 160px;
-  top: 270px;
+  top: 220px;
   -webkit-animation: img_bg 4s linear infinite;
 }
 #img_bg1 {
@@ -63,7 +63,7 @@ body {
   background-color: white;
   position: absolute;
   left: 160px;
-  top: 270px;
+  top: 220px;
   -webkit-animation: img_bg 4s linear 2s infinite;
 }
 @keyframes img_bg {
@@ -686,7 +686,7 @@ body {
 #contain1 {
   position: absolute;
   left: 45px;
-  top: 98px;
+  top: 48px;
   width: 96px;
   height: 96px;
   -webkit-animation: donghua3 8s linear infinite;
@@ -698,7 +698,7 @@ body {
 #contain2 {
   position: absolute;
   left: 183px;
-  top: 155px;
+  top: 100px;
   width: 95px;
   height: 95px;
   -webkit-animation: donghua8 8s linear infinite;
@@ -710,7 +710,7 @@ body {
 #contain3 {
   position: absolute;
   left: 304px;
-  top: 88px;
+  top: 38px;
   width: 110px;
   height: 110px;
   -webkit-animation: donghua10 7s linear infinite;
@@ -722,7 +722,7 @@ body {
 #contain4 {
   position: absolute;
   left: 350px;
-  top: 240px;
+  top: 190px;
   width: 97px;
   height: 97px;
   -webkit-animation: donghua6 8s linear infinite;
@@ -733,8 +733,8 @@ body {
 }
 #contain5 {
   position: absolute;
-  left: 332px;
-  top: 409px;
+  left: 345px;
+  top: 345px;
   width: 98px;
   height: 98px;
   -webkit-animation: donghua9 9s linear infinite;
@@ -745,8 +745,8 @@ body {
 }
 #contain6 {
   position: absolute;
-  left: 320px;
-  top: 535px;
+  left: 330px;
+  top: 480px;
   width: 90px;
   height: 90px;
   -webkit-animation: donghua10 10s linear infinite;
@@ -758,7 +758,7 @@ body {
 #contain7 {
   position: absolute;
   left: 173px;
-  top: 502px;
+  top: 452px;
   width: 91px;
   height: 91px;
   -webkit-animation: donghua7 10s linear infinite;
@@ -770,7 +770,7 @@ body {
 #contain8 {
   position: absolute;
   left: 35px;
-  top: 514px;
+  top: 459px;
   width: 90px;
   height: 90px;
   -webkit-animation: donghua2 10s linear infinite;
@@ -782,7 +782,7 @@ body {
 #contain9 {
   position: absolute;
   left: 45px;
-  top: 388px;
+  top: 333px;
   width: 90px;
   height: 90px;
   -webkit-animation: donghua4 8s linear infinite;
@@ -794,7 +794,7 @@ body {
 #contain10 {
   position: absolute;
   left: 23px;
-  top: 257px;
+  top: 195px;
   width: 92px;
   height: 92px;
   -webkit-animation: donghua9 8s linear infinite;
@@ -809,7 +809,7 @@ body {
 .double11-guess {
   display: block;
   position: absolute;
-  bottom: 123px;
+  bottom: 100px;
   left: 50%;
   margin-left: -128px;
   width: 252px;
@@ -827,7 +827,7 @@ body {
 .double11-hands {
   display: block;
   position: absolute;
-  bottom: 50px;
+  bottom: 27px;
   left: 50%;
   margin-left: -128px;
   width: 252px;
@@ -841,6 +841,82 @@ body {
   line-height: 50px;
   font-weight: bold;
   color: #ffffff;
+}
+@media screen and (min-width: 375px) and (max-width: 413px) {
+  .double11-guess {
+    display: block;
+    position: absolute;
+    bottom: 95px;
+    left: 50%;
+    margin-left: -128px;
+    width: 252px;
+    height: 50px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  .double11-hands {
+    display: block;
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    margin-left: -128px;
+    width: 252px;
+    height: 50px;
+    border: 2px solid #00ede5;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+@media screen and (min-width: 414px) {
+  .double11-guess {
+    display: block;
+    position: absolute;
+    bottom: 95px;
+    left: 50%;
+    margin-left: -128px;
+    width: 252px;
+    height: 50px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  .double11-hands {
+    display: block;
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    margin-left: -128px;
+    width: 252px;
+    height: 50px;
+    border: 2px solid #00ede5;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    color: #ffffff;
+  }
 }
 a {
   text-decoration: none;
@@ -897,4 +973,8 @@ a:hover {
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
+}
+body {
+  max-width: 600px;
+  margin: 0 auto;
 }
