@@ -385,6 +385,7 @@
             /* 开始事件 */
             fn.loadImage();
             fn.begin();
+            /* 按钮点击事件 */
             oBtn.ontouchend = function(){
                 if(!isWin||is8192){
                     fn.fnReset();
@@ -406,11 +407,11 @@
             var startY = 0;
             var moveEndX = 0;
             var moveEndY = 0;
+            /* 鼠标滑动事件 */
             $("body").on("touchstart", function(e) {
                 e.preventDefault();
                 startX = e.originalEvent.changedTouches[0].pageX, startY = e.originalEvent.changedTouches[0].pageY;
-            });
-            $("body").on("touchend", function(e) {
+            }).on("touchend", function(e) {
                 if(!isOK) return;
                 var ev = e || event;
                 ev.preventDefault();
