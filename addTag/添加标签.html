@@ -31,7 +31,12 @@
 <body id='body'>
     <div id="cardsound" class="cardsound">
         <img id="sound_image" class="sound_image" src="../images/d11/2016d11-music.png" />
-        <audio id="audioPlay" src="http://ws.stream.qqmusic.qq.com/102054866.m4a?fromtag=46" loop="loop" autoplay></audio>
+        <audio id="audioPlay" data-play="1" loop="loop" autoplay>
+            <source src="http://img.huimaiche.cn/uimg/www/v20160804/mini/1.ogg" type="audio/ogg">
+            <source src="http://img.huimaiche.cn/uimg/www/v20160804/mini/1.mp3" type="audio/mpeg">
+            <source src="http://img.huimaiche.cn/uimg/www/v20160804/mini/1.m4a" type="audio/mpeg">
+            <source src="http://img.huimaiche.cn/uimg/www/v20160804/mini/1.wav" >
+        </audio>
         <div id="music_txt" class="music_txt"></div>
     </div>
     <div id='img_bg1'></div>
@@ -107,7 +112,7 @@
         <div class="d11-break1"></div>
         <div class="d11-break2"></div>
     </div>
-    <a href="#" class="double11-guess">猜猜小伙伴会给我选什么</a>
+    <a href="#" class="double11-guess">看看小伙伴会给我选什么</a>
     <a href="#" class="double11-hands">这个别点开！怕你剁手</a>
     <div class="double11-mask">
         <div class="double11-turntop"></div>
@@ -376,6 +381,9 @@
         /* 音乐控制end */
         $('.double11-sure').click(function () {
             $(this).parents('.double11-mask').hide();
+        });
+        $('.double11-guess').on('click', function () {
+            $('.double11-mask').show();
         });
     });
 </script>
