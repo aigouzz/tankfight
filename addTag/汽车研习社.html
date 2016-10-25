@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>汽车研习社</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../css/addTag.css" />
+    <script>
+        (function () {
+            if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+                var version = parseFloat(RegExp.$1);
+                if (version > 2.3) {
+                    var width = window.outerWidth == 0 ? window.screen.width : window.outerWidth;
+                    var phoneScale = parseInt(width) / 500;
+                    document.write('<meta name="viewport" content="width=500, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+                }
+                else {
+                    document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi">');
+                }
+            }
+            else if (navigator.userAgent.indexOf('iPhone') != -1) {
+                var phoneScale = parseInt(window.screen.width) / 500;
+                document.write('<meta name="viewport" content="width=500, height=750,initial-scale=' + phoneScale + ',user-scalable=no" /> ');
+            }
+            else {
+                document.write('<meta name="viewport" content="width=500, height=750,initial-scale=0.64" /> ');
+            }
+        })();
+    </script>
+</head>
+<body>
+<div class="double11-car-title">微信识别二维码或关注汽车研习社订阅号，参与本次活动。</div>
+<div class="double11-car-img">
+    <div class="double11-car-erweima"></div>
+    <div class="double11-car-text">立即扫码 参与活动</div>
+</div>
+<div class="double11-car-name">汽车研习社订阅号：<span>qicheyanxishe</span></div>
+</body>
+<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../js/jquery.form.js"></script>
+<script>
+    $(document).ready(function () {
+        var x_out = document.documentElement.clientWidth + document.body.scrollLeft;
+        var y_out = document.documentElement.clientHeight + document.body.scrollTop + 1;
+        document.getElementsByTagName('body').style.width = x_out + 'px';
+        document.getElementsByTagName('body').style.height = y_out + 'px';
+    });
+</script>
+</html>

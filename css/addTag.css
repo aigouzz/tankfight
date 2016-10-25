@@ -933,6 +933,7 @@ a:hover {
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 51;
+  display: none;
 }
 .double11-mask .double11-turntop {
   position: absolute;
@@ -977,4 +978,45 @@ a:hover {
 body {
   max-width: 600px;
   margin: 0 auto;
+}
+.double11-car-title {
+  width: 78%;
+  margin: 0 auto;
+  padding-top: 50px;
+  line-height: 30px;
+  color: #ffffff;
+  font-size: 20px;
+}
+.double11-car-img {
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 40px;
+  background: #ffffff;
+}
+.double11-car-img .double11-car-erweima {
+  width: 150px;
+  height: 148px;
+  background: url("../images/d11/2016d11-erweima.jpg") no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+}
+.double11-car-img .double11-car-text {
+  line-height: 24px;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  padding-bottom: 11px;
+}
+.double11-car-name {
+  padding-top: 40px;
+  line-height: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 20px;
+  color: #ffffff;
+}
+.double11-car-name span {
+  color: #efc50f;
 }
