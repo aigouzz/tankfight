@@ -37,11 +37,9 @@
     function  toDouble(n){
         return n < 10?'0'+n:''+n;
     }
-
     function  randomNum(minNum,maxNum) {
         return minNum + parseInt(Math.random() * (maxNum - minNum));
     }
-
     window.onload = function  () {
         var oButton = document.getElementById('input');
         var timeId = null;
@@ -52,7 +50,6 @@
                 clearInterval(timeId);
             },600);
         };
-
         function NumScroll() {
             var aLi = document.getElementsByTagName('li');
             aLi[aLi.length -1 ].style.backgroundColor = 'blue';
@@ -63,22 +60,14 @@
                     Numarr.push(ranNum);
                 }
             }
-
             Numarr.sort(function  (a,b) {
-
                 return a - b;
             });
-
             for (var i = 0; i < Numarr.length;i++) {
-
                 aLi[i].innerHTML = Numarr[i];
-
             }
-
             aLi[aLi.length - 1].innerHTML = toDouble(randomNum(1,17));
-
         }
-
     }
 </script>
 
