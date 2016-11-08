@@ -21,7 +21,6 @@
             }
             oTb.appendChild(oTr);
         }
-
         oTa.appendChild(oTb);
         oTa.style.cssText = 'margin:60px auto 0; border:10px solid #333; background:#ccc;';
         document.body.appendChild(oTa);
@@ -98,8 +97,7 @@
                         fnTimer('down', 1, 0);
                         break;
                 } //switch
-            }; //onkeydown
-
+            }; 
             function onOff(dir) {
                 for (var i in json) {
                     if (i == dir) {
@@ -110,7 +108,6 @@
                     }
                 }
             }
-
             function fnTimer(dir, m, n) {
                 snakeMove = function () {
                     fnTimer(dir, m, n)
