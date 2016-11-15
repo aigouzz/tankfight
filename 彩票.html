@@ -34,9 +34,11 @@
 </ul>
 </body>
 <script>
+    /* 变成字符串并且是两位数字 */
     function  toDouble(n){
         return n < 10 ? '0' + n : '' + n ;
     }
+    /* 从最小和最大之间选一个数字 */
     function  randomNum(minNum,maxNum) {
         return minNum + parseInt(Math.random() * (maxNum - minNum));
     }
@@ -70,5 +72,4 @@
         }
     }
 </script>
-
 </html>
