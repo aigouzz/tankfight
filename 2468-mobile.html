@@ -4,23 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2048</title>
-    <link rel="icon" href="images/cube_2048.png" />
+    <link rel="icon" href="images/cube_2048.png"/>
     <style>
-        html,body{height:100%;margin:0;padding:0;}
-        body{background:#bfbfff url(images/body_bg.gif) repeat-x 0 bottom;}
-        p,input{margin:0;padding:0;}
-        #con{width: 100% ;height: 82%;background: url(images/bg.png) no-repeat;max-width:640px;
-            background-size: 100% 100%;-moz-background-size: 100% 100%;-o-background-size: 100% 100%;-webkit-background-size: 100% 100%;}
-        #con div{float:left;width:25%;height:25%;position: relative;}
-        #con img{vertical-align:top;border:none;width:100%;height:100%;position: absolute;top:0;left:0;}
-        #mask{width:100%;height:100%;background:#000;border-radius:10px;opacity: 0.1;filter:alpha(opacity:10);position:absolute;left:0;top:0;display:none;}
-        #jump{width:260px;height:180px;background:#eccbf0;box-shadow:inset 0 0 8px #6fd9f0;position:absolute;top:150px;left:30px;border-radius:10px;display:none;}
-        #jump input{width:100px;height:36px;margin:30px 80px;}
-        #jump p{margin-top:30px;height:60px;line-height:60px;text-align:center;color:#fff;font-weight: bold;}
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #bfbfff url(images/body_bg.gif) repeat-x 0 bottom;
+        }
+
+        p, input {
+            margin: 0;
+            padding: 0;
+        }
+
+        #con {
+            width: 100%;
+            height: 82%;
+            background: url(images/bg.png) no-repeat;
+            max-width: 640px;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            -o-background-size: 100% 100%;
+            -webkit-background-size: 100% 100%;
+        }
+
+        #con div {
+            float: left;
+            width: 25%;
+            height: 25%;
+            position: relative;
+        }
+
+        #con img {
+            vertical-align: top;
+            border: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #mask {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 10px;
+            opacity: 0.1;
+            filter: alpha(opacity:10);
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        #jump {
+            width: 260px;
+            height: 180px;
+            background: #eccbf0;
+            box-shadow: inset 0 0 8px #6fd9f0;
+            position: absolute;
+            top: 150px;
+            left: 30px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        #jump input {
+            width: 100px;
+            height: 36px;
+            margin: 30px 80px;
+        }
+
+        #jump p {
+            margin-top: 30px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+        }
     </style>
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript">
-        window.onload = function(){
+        window.onload = function () {
             var oCon = document.getElementById('con');
             var oMask = document.getElementById('mask');
             var oJump = document.getElementById('jump');
@@ -28,8 +99,8 @@
             var oBtn = oJump.getElementsByTagName('input')[0];
             var aDiv = oCon.getElementsByTagName('div');
             var aImg = oCon.getElementsByTagName('img');
-            var arrText = ['不好意思，您输了！','恭喜您，已达到2048！','您的成就已载入史册！'];
-            var arrLoadImg = ['images/body_bg.gif','images/scroe.png','images/bg.png','images/cube_2.png','images/cube_4.png','images/cube_8.png','images/cube_16.png','images/cube_32.png','images/cube_64.png','images/cube_128.png','images/cube_256.png','images/cube_512.png','images/cube_1024.png','images/cube_2048.png','images/cube_4096.png','images/cube_8192.png'];
+            var arrText = ['不好意思，您输了！', '恭喜您，已达到2048！', '您的成就已载入史册！'];
+            var arrLoadImg = ['images/body_bg.gif', 'images/scroe.png', 'images/bg.png', 'images/cube_2.png', 'images/cube_4.png', 'images/cube_8.png', 'images/cube_16.png', 'images/cube_32.png', 'images/cube_64.png', 'images/cube_128.png', 'images/cube_256.png', 'images/cube_512.png', 'images/cube_1024.png', 'images/cube_2048.png', 'images/cube_4096.png', 'images/cube_8192.png'];
             var arrCellAll = [];
             var arrCollapseAll = [];
             var moveNum = 0;
@@ -45,11 +116,11 @@
             var isOK = true;
             var fn = {
                 /* 给img添加src */
-                loadImage:function () {
+                loadImage: function () {
                     oLoadImg.src = arrLoadImg[loadCur];
                 },
                 /* 开始添加数字 */
-                begin:function (){
+                begin: function () {
                     addScroe = 0;
                     fn.setAttr();
                     fn.init();
@@ -57,46 +128,46 @@
                     fn.init();
                 },
                 /* 移动中数字检测 */
-                isMove:function(k,a,b,c,d){
-                    var arr = [a,b,c,d];
+                isMove: function (k, a, b, c, d) {
+                    var arr = [a, b, c, d];
                     arrCollapse = [];
                     arrCell = [];
 
-                    for(var i=0;i<arr.length;i++){
-                        if(arr[i].children[0]){
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i].children[0]) {
                             arrCell.push(arr[i]);
                             arrCollapse.push(arr[i].t);
                         }
                     }
 
-                    if(k==37||k==38){
-                        for(var i=0;i<arrCollapse.length;i++){
-                            if(arrCollapse[i+1] && arrCollapse[i]==arrCollapse[i+1]){
+                    if (k == 37 || k == 38) {
+                        for (var i = 0; i < arrCollapse.length; i++) {
+                            if (arrCollapse[i + 1] && arrCollapse[i] == arrCollapse[i + 1]) {
                                 addScroe += arrCollapse[i];
-                                arrCollapse[i] +=1;
-                                arrCollapse.splice(i+1,1);
-                                arrCell[i] = arrCell[i+1];
-                                arrCell.splice(i+1,1);
-                                if(arrCollapse[i]==11){
+                                arrCollapse[i] += 1;
+                                arrCollapse.splice(i + 1, 1);
+                                arrCell[i] = arrCell[i + 1];
+                                arrCell.splice(i + 1, 1);
+                                if (arrCollapse[i] == 11) {
                                     is2048 = true;
                                 }
-                                if(arrCollapse[i]==13){
+                                if (arrCollapse[i] == 13) {
                                     is8192 = true;
                                 }
                             }
                         }
-                    } else{
-                        for(var i = arrCollapse.length-1;i>=0;i--){
-                            if(i>0&&arrCollapse[i]==arrCollapse[i-1]){
-                                addScroe += arrCollapse[i]*2;
-                                arrCollapse[i] +=1;
-                                arrCollapse.splice(i-1,1);
-                                arrCell[i] = arrCell[i-1];
-                                arrCell.splice(i-1,1);
-                                if(arrCollapse[i]==11){
+                    } else {
+                        for (var i = arrCollapse.length - 1; i >= 0; i--) {
+                            if (i > 0 && arrCollapse[i] == arrCollapse[i - 1]) {
+                                addScroe += arrCollapse[i] * 2;
+                                arrCollapse[i] += 1;
+                                arrCollapse.splice(i - 1, 1);
+                                arrCell[i] = arrCell[i - 1];
+                                arrCell.splice(i - 1, 1);
+                                if (arrCollapse[i] == 11) {
                                     is2048 = true;
                                 }
-                                if(arrCollapse[i]==13){
+                                if (arrCollapse[i] == 13) {
                                     is8192 = true;
                                 }
                                 i--;
@@ -106,125 +177,125 @@
                     arrCellAll.push(arrCell);
                     arrCollapseAll.push(arrCollapse);
 
-                    if(arrCellAll.length==4){
-                        fn.startMove(k,arrCellAll,arrCollapseAll);
+                    if (arrCellAll.length == 4) {
+                        fn.startMove(k, arrCellAll, arrCollapseAll);
                     }
                 },
                 /* 开始移动 */
-                startMove:function (k,arr,arrNum){
+                startMove: function (k, arr, arrNum) {
                     var dis = null;
                     var speed = null;
                     var timer = null;
 
-                    if(k==39||k==40){
-                        for( var i=0;i < arr.length;i++ ){
-                            for(var j=0;j < arr[i].length;j++){
-                                if(arr[i].length==4) break;
+                    if (k == 39 || k == 40) {
+                        for (var i = 0; i < arr.length; i++) {
+                            for (var j = 0; j < arr[i].length; j++) {
+                                if (arr[i].length == 4) break;
                                 arr[i].unshift(null);
                                 arrNum[i].unshift(0);
                             }
                         }
                     }
-                    for(var i=0;i<arr.length;i++){
-                        for(var j=0;j<arr[i].length;j++){
-                            if(k==37){
-                                if(j!=arr[i][j].X || arrNum[i][j]!=arr[i][j].t){
+                    for (var i = 0; i < arr.length; i++) {
+                        for (var j = 0; j < arr[i].length; j++) {
+                            if (k == 37) {
+                                if (j != arr[i][j].X || arrNum[i][j] != arr[i][j].t) {
                                     moveNum++;
                                 }
-                            } else if(k==38){
-                                if(j!=arr[i][j].Y || arrNum[i][j]!=arr[i][j].t){
+                            } else if (k == 38) {
+                                if (j != arr[i][j].Y || arrNum[i][j] != arr[i][j].t) {
                                     moveNum++;
                                 }
-                            } else if(k==39){
-                                if(arr[i][j]&&j!=arr[i][j].X||arr[i][j] && arrNum[i][j]!=arr[i][j].t){
+                            } else if (k == 39) {
+                                if (arr[i][j] && j != arr[i][j].X || arr[i][j] && arrNum[i][j] != arr[i][j].t) {
                                     moveNum++;
                                 }
-                            } else if(k==40){
-                                if(arr[i][j]&&j!=arr[i][j].Y||arr[i][j] && arrNum[i][j]!=arr[i][j].t){
+                            } else if (k == 40) {
+                                if (arr[i][j] && j != arr[i][j].Y || arr[i][j] && arrNum[i][j] != arr[i][j].t) {
                                     moveNum++;
                                 }
                             }
                         }
                     }
-                    for( var i=0;i<arrNum.length;i++ ){
-                        for(var j=0;j<arrNum[i].length;j++){
-                            if(arrNum[i][j]!=0)showNum++;
-                            if(arrNum[i][j]==11 && show2048){
+                    for (var i = 0; i < arrNum.length; i++) {
+                        for (var j = 0; j < arrNum[i].length; j++) {
+                            if (arrNum[i][j] != 0)showNum++;
+                            if (arrNum[i][j] == 11 && show2048) {
                                 is2048 = true;
                             }
-                            if(arrNum[i][j]==13){
+                            if (arrNum[i][j] == 13) {
                                 is8192 = true;
                             }
                         }
                     }
 
-                    if(showNum==15||showNum==16){
+                    if (showNum == 15 || showNum == 16) {
                         isWin = false;
-                    } else{
+                    } else {
                         isWin = true;
                     }
 
-                    if(moveNum==0){
+                    if (moveNum == 0) {
                         return;
                     }
 
                     isOK = false;
 
-                    if( k == 37 ){
-                        for(var i=0;i<arr.length;i++){
-                            for(var j=0;j<arr[i].length;j++){
-                                if(j!=arr[i][j].X||arrNum[i][j]!=arr[i][j].t){
-                                    dis = (j-arr[i][j].X)*80;
-                                    speed = (arr[i][j].X-j)*40;
-                                    fn.doMove(arr[i][j].children[0],speed,'left',dis,function(){
+                    if (k == 37) {
+                        for (var i = 0; i < arr.length; i++) {
+                            for (var j = 0; j < arr[i].length; j++) {
+                                if (j != arr[i][j].X || arrNum[i][j] != arr[i][j].t) {
+                                    dis = (j - arr[i][j].X) * 80;
+                                    speed = (arr[i][j].X - j) * 40;
+                                    fn.doMove(arr[i][j].children[0], speed, 'left', dis, function () {
                                         moveNum--;
-                                        if(moveNum==0){
-                                            fn.rePic(k,arrNum,showNum);
+                                        if (moveNum == 0) {
+                                            fn.rePic(k, arrNum, showNum);
                                         }
                                     });
                                 }
                             }
                         }
-                    } else if( k == 38 ){
-                        for(var i=0;i<arr.length;i++){
-                            for(var j=0;j<arr[i].length;j++){
-                                if(j!=arr[i][j].Y||arrNum[i][j]!=arr[i][j].t){
-                                    dis = (j-arr[i][j].Y)*109;
-                                    speed = (arr[i][j].Y-j)*50;
-                                    fn.doMove(arr[i][j].children[0],speed,'top',dis,function(){
+                    } else if (k == 38) {
+                        for (var i = 0; i < arr.length; i++) {
+                            for (var j = 0; j < arr[i].length; j++) {
+                                if (j != arr[i][j].Y || arrNum[i][j] != arr[i][j].t) {
+                                    dis = (j - arr[i][j].Y) * 109;
+                                    speed = (arr[i][j].Y - j) * 50;
+                                    fn.doMove(arr[i][j].children[0], speed, 'top', dis, function () {
                                         moveNum--;
-                                        if(moveNum==0){
-                                            fn.rePic(k,arrNum,showNum);
+                                        if (moveNum == 0) {
+                                            fn.rePic(k, arrNum, showNum);
                                         }
                                     });
                                 }
                             }
                         }
-                    } else if(k==39){
-                        for(var i=0;i<arr.length;i++){
-                            for(var j=0;j<arr[i].length;j++){
-                                if(arr[i][j]&&j!=arr[i][j].X||arr[i][j]&&arrNum[i][j]!=arr[i][j].t){
-                                    dis = (j-arr[i][j].X)*80;
-                                    speed = (j-arr[i][j].X)*40;
-                                    fn.doMove(arr[i][j].children[0],speed,'left',dis,function(){
+                    } else if (k == 39) {
+                        for (var i = 0; i < arr.length; i++) {
+                            for (var j = 0; j < arr[i].length; j++) {
+                                if (arr[i][j] && j != arr[i][j].X || arr[i][j] && arrNum[i][j] != arr[i][j].t) {
+                                    dis = (j - arr[i][j].X) * 80;
+                                    speed = (j - arr[i][j].X) * 40;
+                                    fn.doMove(arr[i][j].children[0], speed, 'left', dis, function () {
                                         moveNum--;
-                                        if(moveNum==0){
-                                            fn.rePic(k,arrNum,showNum);
+                                        if (moveNum == 0) {
+                                            fn.rePic(k, arrNum, showNum);
                                         }
                                     });
                                 }
                             }
                         }
-                    } else if(k==40){
-                        for(var i=0;i<arr.length;i++){
-                            for(var j=arr[i].length;j>=0;j--){
-                                if(arr[i][j] && j!=arr[i][j].Y || arr[i][j] && arrNum[i][j]!=arr[i][j].t){
-                                    dis = (j-arr[i][j].Y)*109;
-                                    speed = (j-arr[i][j].Y)*50;
-                                    fn.doMove(arr[i][j].children[0],speed,'top',dis,function(){
+                    } else if (k == 40) {
+                        for (var i = 0; i < arr.length; i++) {
+                            for (var j = arr[i].length; j >= 0; j--) {
+                                if (arr[i][j] && j != arr[i][j].Y || arr[i][j] && arrNum[i][j] != arr[i][j].t) {
+                                    dis = (j - arr[i][j].Y) * 109;
+                                    speed = (j - arr[i][j].Y) * 50;
+                                    fn.doMove(arr[i][j].children[0], speed, 'top', dis, function () {
                                         moveNum--;
-                                        if(moveNum==0){
-                                            fn.rePic(k,arrNum,showNum);
+                                        if (moveNum == 0) {
+                                            fn.rePic(k, arrNum, showNum);
                                         }
                                     });
                                 }
@@ -232,100 +303,100 @@
                         }
                     }
                 },
-                rePic:function (k,arrNum,showNum){
+                rePic: function (k, arrNum, showNum) {
                     fn.fnReset();
-                    for(var m=0;m<arrNum.length;m++){
-                        for(var n=0;n<arrNum[m].length;n++){
-                            if(arrNum[m][n]){
+                    for (var m = 0; m < arrNum.length; m++) {
+                        for (var n = 0; n < arrNum[m].length; n++) {
+                            if (arrNum[m][n]) {
                                 var oImg = document.createElement('img');
                                 oImg.src = fn.getPic(arrNum[m][n]);
-                                if(k==37){
-                                    aDiv[m*4+n].appendChild(oImg);
-                                    aDiv[m*4+n].t = arrNum[m][n];
-                                } else if(k==38){
-                                    aDiv[n*4+m].appendChild(oImg);
-                                    aDiv[n*4+m].t = arrNum[m][n];
-                                } else if(k==39){
-                                    aDiv[m*4+n].appendChild(oImg);
-                                    aDiv[m*4+n].t = arrNum[m][n];
-                                } else if(k==40){
-                                    aDiv[n*4+m].appendChild(oImg);
-                                    aDiv[n*4+m].t = arrNum[m][n];
+                                if (k == 37) {
+                                    aDiv[m * 4 + n].appendChild(oImg);
+                                    aDiv[m * 4 + n].t = arrNum[m][n];
+                                } else if (k == 38) {
+                                    aDiv[n * 4 + m].appendChild(oImg);
+                                    aDiv[n * 4 + m].t = arrNum[m][n];
+                                } else if (k == 39) {
+                                    aDiv[m * 4 + n].appendChild(oImg);
+                                    aDiv[m * 4 + n].t = arrNum[m][n];
+                                } else if (k == 40) {
+                                    aDiv[n * 4 + m].appendChild(oImg);
+                                    aDiv[n * 4 + m].t = arrNum[m][n];
                                 }
                                 showNum--;
                             }
                         }
                     }
 
-                    if(showNum==0){
+                    if (showNum == 0) {
                         fn.init();
                         isOK = true;
-                        if(is2048&&show2048){
+                        if (is2048 && show2048) {
                             fn.fnJump(1);
                         }
-                        if(is8192){
+                        if (is8192) {
                             fn.fnJump(2);
                         }
-                        if(!isWin){
+                        if (!isWin) {
                             win = 0;
-                            for(var i=0;i<aDiv.length;i++){
+                            for (var i = 0; i < aDiv.length; i++) {
 
-                                if((i+1)%4==0&&aDiv[i+4]&&aDiv[i].t==aDiv[i+4].t){
+                                if ((i + 1) % 4 == 0 && aDiv[i + 4] && aDiv[i].t == aDiv[i + 4].t) {
                                     return;
-                                } else if((i+1)%4!=0&&aDiv[i].t==aDiv[i+1].t||aDiv[i+4]&&aDiv[i].t==aDiv[i+4].t){
+                                } else if ((i + 1) % 4 != 0 && aDiv[i].t == aDiv[i + 1].t || aDiv[i + 4] && aDiv[i].t == aDiv[i + 4].t) {
                                     return;
-                                } else{
+                                } else {
                                     win++;
                                 }
 
                             }
-                            if(win==16){
+                            if (win == 16) {
                                 fn.fnJump(0);
                             }
                         }
                     }
 
                 },
-                fnJump:function (n){
+                fnJump: function (n) {
                     oText.innerHTML = arrText[n];
                     oMask.style.display = oJump.style.display = 'block';
                 },
                 /* 重新再玩 */
-                fnReset:function (){
-                    for(var i=0;i<aDiv.length;i++){
-                        if(aDiv[i].children[0]){
+                fnReset: function () {
+                    for (var i = 0; i < aDiv.length; i++) {
+                        if (aDiv[i].children[0]) {
                             aDiv[i].removeChild(aDiv[i].children[0]);
                             aDiv[i].t = 0;
                         }
                     }
                 },
                 /* 随机添加一个位置的图片 */
-                init: function (){
+                init: function () {
                     var randNum = fn.getRanNum();
-                    fn.showPic(randNum['posNum'],randNum['num']);
+                    fn.showPic(randNum['posNum'], randNum['num']);
                 },
-                getRanNum:function(){
+                getRanNum: function () {
                     var arr = [];
                     var posNum = null;
-                    var num = Math.random()>0.8?2:1;
-                    for(var i=0;i<aDiv.length;i++){
-                        if(aDiv[i].t==0) arr.push(aDiv[i]);
+                    var num = Math.random() > 0.8 ? 2 : 1;
+                    for (var i = 0; i < aDiv.length; i++) {
+                        if (aDiv[i].t == 0) arr.push(aDiv[i]);
                     }
-                    posNum = Math.floor(Math.random()*arr.length);
+                    posNum = Math.floor(Math.random() * arr.length);
 
                     return {
-                        "posNum":arr[posNum],
-                        "num":num
+                        "posNum": arr[posNum],
+                        "num": num
                     };
                 },
-                showPic:function (pos,num){
+                showPic: function (pos, num) {
                     var oImg = document.createElement('img');
                     oImg.src = fn.getPic(num);
                     pos.appendChild(oImg);
                     pos.t = num;
                 },
-                getPic:function (n){
-                    switch(n){
+                getPic: function (n) {
+                    switch (n) {
                         case 1:
                             return 'images/cube_2.png';
                         case 2:
@@ -354,40 +425,40 @@
                             return 'images/cube_8192.png';
                     }
                 },
-                setAttr:function (){
-                    for(var i=0;i<aDiv.length;i++){
-                        aDiv[i].X = i%4;
-                        aDiv[i].Y = Math.floor(i/4);
+                setAttr: function () {
+                    for (var i = 0; i < aDiv.length; i++) {
+                        aDiv[i].X = i % 4;
+                        aDiv[i].Y = Math.floor(i / 4);
                         aDiv[i].t = 0;
                     }
                 },
-                doMove: function (obj,num,attr,target,endFn){
-                    num = parseInt(fn.getStyle(obj,attr))<target?num:-num;
+                doMove: function (obj, num, attr, target, endFn) {
+                    num = parseInt(fn.getStyle(obj, attr)) < target ? num : -num;
                     clearInterval(obj.timer);
-                    obj.timer = setInterval(function(){
-                        var speed = parseInt(fn.getStyle(obj,attr))+num;
-                        if(speed<target&&num<0||speed>target&&num>0){
+                    obj.timer = setInterval(function () {
+                        var speed = parseInt(fn.getStyle(obj, attr)) + num;
+                        if (speed < target && num < 0 || speed > target && num > 0) {
                             speed = target;
                         }
                         obj.style[attr] = speed + 'px';
-                        if(speed == target){
+                        if (speed == target) {
                             clearInterval(obj.timer);
-                            if(typeof endFn=='function'){
+                            if (typeof endFn == 'function') {
                                 endFn();
                             }
                         }
-                    },30);
+                    }, 30);
                 },
-                getStyle: function (obj,attr){
-                    return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+                getStyle: function (obj, attr) {
+                    return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj, false)[attr];
                 }
             };
             /* 开始事件 */
             fn.loadImage();
             fn.begin();
             /* 按钮点击事件 */
-            oBtn.ontouchend = function(){
-                if(!isWin||is8192){
+            oBtn.ontouchend = function () {
+                if (!isWin || is8192) {
                     fn.fnReset();
                     fn.begin();
                     oMask.style.display = oJump.style.display = 'none';
@@ -397,7 +468,7 @@
                     is8192 = false;
                     isOK = true;
                 }
-                if(is2048){
+                if (is2048) {
                     oMask.style.display = oJump.style.display = 'none';
                     show2048 = false;
                     is2048 = false;
@@ -408,47 +479,47 @@
             var moveEndX = 0;
             var moveEndY = 0;
             /* 鼠标滑动事件 */
-            $("body").on("touchstart", function(e) {
+            $("body").on("touchstart", function (e) {
                 e.preventDefault();
                 startX = e.originalEvent.changedTouches[0].pageX, startY = e.originalEvent.changedTouches[0].pageY;
-            }).on("touchend", function(e) {
-                if(!isOK) return;
+            }).on("touchend", function (e) {
+                if (!isOK) return;
                 var ev = e || event;
                 ev.preventDefault();
                 arrCellAll = [];
                 arrCollapseAll = [];
                 moveNum = 0;
                 showNum = 0;
-                if(fn.getStyle(oMask,'display')!="none"){
+                if (fn.getStyle(oMask, 'display') != "none") {
                     return false;
                 }
                 moveEndX = e.originalEvent.changedTouches[0].pageX, moveEndY = e.originalEvent.changedTouches[0].pageY, X = moveEndX - startX , Y = moveEndY - startY;
 
-                if ( (X > 0 && Y > 0 && X > Y) || (X > 0 && Y<0 && X > Math.abs(Y)) ) {
-                    for(var i=0;i<4;i++){
-                        fn.isMove(39,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
+                if ((X > 0 && Y > 0 && X > Y) || (X > 0 && Y < 0 && X > Math.abs(Y))) {
+                    for (var i = 0; i < 4; i++) {
+                        fn.isMove(39, aDiv[i * 4], aDiv[i * 4 + 1], aDiv[i * 4 + 2], aDiv[i * 4 + 3]);
                     }
                     return;
                 }
-                else if ((X < 0 && Y > 0 && Math.abs(X) > Y) || (X < 0 && Y<0 && X < Y ) ) {
-                    for(var i=0;i<4;i++){
-                        fn.isMove(37,aDiv[i*4],aDiv[i*4+1],aDiv[i*4+2],aDiv[i*4+3]);
+                else if ((X < 0 && Y > 0 && Math.abs(X) > Y) || (X < 0 && Y < 0 && X < Y )) {
+                    for (var i = 0; i < 4; i++) {
+                        fn.isMove(37, aDiv[i * 4], aDiv[i * 4 + 1], aDiv[i * 4 + 2], aDiv[i * 4 + 3]);
                     }
                     return;
                 }
-                else if ( (X > 0 && Y > 0 && X < Y) || (X < 0 && Y > 0 && Math.abs(X) < Y )) {
-                    for(var i=0;i<4;i++){
-                        fn.isMove(40,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
+                else if ((X > 0 && Y > 0 && X < Y) || (X < 0 && Y > 0 && Math.abs(X) < Y )) {
+                    for (var i = 0; i < 4; i++) {
+                        fn.isMove(40, aDiv[i], aDiv[i + 1 * 4], aDiv[i + 2 * 4], aDiv[i + 3 * 4]);
                     }
                     return;
                 }
-                else if ( (X > 0 && Y < 0 && X < Math.abs(Y)) || (X < 0 && Y < 0 && X > Y ) ) {
-                    for(var i=0;i<4;i++){
-                        fn.isMove(38,aDiv[i],aDiv[i+1*4],aDiv[i+2*4],aDiv[i+3*4]);
+                else if ((X > 0 && Y < 0 && X < Math.abs(Y)) || (X < 0 && Y < 0 && X > Y )) {
+                    for (var i = 0; i < 4; i++) {
+                        fn.isMove(38, aDiv[i], aDiv[i + 1 * 4], aDiv[i + 2 * 4], aDiv[i + 3 * 4]);
                     }
                     return;
                 }
-                else{
+                else {
                     return;
                 }
             });
