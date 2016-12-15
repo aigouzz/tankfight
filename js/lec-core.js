@@ -355,3 +355,4 @@ function startMoveTime(obj,json,times,fx,fn){
     }
 
 }
+/* tween 框架 */
