@@ -481,7 +481,8 @@
             /* 鼠标滑动事件 */
             $("body").on("touchstart", function (e) {
                 e.preventDefault();
-                startX = e.originalEvent.changedTouches[0].pageX, startY = e.originalEvent.changedTouches[0].pageY;
+                startX = e.originalEvent.changedTouches[0].pageX;
+                startY = e.originalEvent.changedTouches[0].pageY;
             }).on("touchend", function (e) {
                 if (!isOK) return;
                 var ev = e || event;
@@ -499,28 +500,28 @@
                     for (var i = 0; i < 4; i++) {
                         fn.isMove(39, aDiv[i * 4], aDiv[i * 4 + 1], aDiv[i * 4 + 2], aDiv[i * 4 + 3]);
                     }
-                    return;
+                    return false;
                 }
                 else if ((X < 0 && Y > 0 && Math.abs(X) > Y) || (X < 0 && Y < 0 && X < Y )) {
                     for (var i = 0; i < 4; i++) {
                         fn.isMove(37, aDiv[i * 4], aDiv[i * 4 + 1], aDiv[i * 4 + 2], aDiv[i * 4 + 3]);
                     }
-                    return;
+                    return false;
                 }
                 else if ((X > 0 && Y > 0 && X < Y) || (X < 0 && Y > 0 && Math.abs(X) < Y )) {
                     for (var i = 0; i < 4; i++) {
                         fn.isMove(40, aDiv[i], aDiv[i + 1 * 4], aDiv[i + 2 * 4], aDiv[i + 3 * 4]);
                     }
-                    return;
+                    return false;
                 }
                 else if ((X > 0 && Y < 0 && X < Math.abs(Y)) || (X < 0 && Y < 0 && X > Y )) {
                     for (var i = 0; i < 4; i++) {
                         fn.isMove(38, aDiv[i], aDiv[i + 1 * 4], aDiv[i + 2 * 4], aDiv[i + 3 * 4]);
                     }
-                    return;
+                    return false;
                 }
                 else {
-                    return;
+                    return false;
                 }
             });
         }
