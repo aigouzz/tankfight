@@ -16,6 +16,7 @@
  * @param{interval} 坦克射击的时间间隔
  * @param{name} 坦克名称
  * @param{score} 坦克分数，打死后所得积分
+ * tank demo  create tank  原生js
  */
 function Tank(oParent,elem,x,y,bgPos,speed,dir,type,blood,interval,name,score){
     CreateObj.call(this,oParent,elem,x,y,bgPos,speed,dir);
