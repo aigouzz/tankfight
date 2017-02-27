@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>calculate the result</title>
+    <style>
+        .calculate-1{
+            width:900px;
+            margin:0 auto;
+        }
+        .calculate-1 div{
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            color: #0e0e0e;
+            text-align: center;
+        }
+        span{
+            display: inline-block;
+            width: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="calculate-1"></div>
+<script src="http://img.huimaiche.cn/uimg/www/v20160927/js/jquery-1.7.1.min.js"></script>
+<script>
+    $(function () {
+        var num = 1;
+        var time = 2014;
+        var times = 0;
+        var link = '';
+        var calculate = $('.calculate-1');
+        var otime = setInterval(function () {
+            if(num < 10){
+                link = time + '00' + num;
+            }else if(num < 100 && num >= 10){
+                link = time + '0' + num;
+            }else{
+                link = time + '' + num;
+            }
+            num ++;
+            if(num > 153){
+                num = 1;
+                time ++;
+            }
+            if(time == 2017 && num > 100){
+                clearInterval(otime);
+            }
+            $.ajax({
+                type:'get',
+                dataType:'json',
+                url:'http://baidu.lecai.com/lottery/draw/ajax_get_detail.php?lottery_type=50&phase=' + link,
+                /*beforeSend: function (xhr) {
+                    xhr.setRequestHeader('client_type','DESKTOP_WEB');
+                    xhr.setRequestHeader('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36');
+                },*/
+                success: function (data) {
+                    var oDiv = document.createElement('div');
+                    var html = '<span>' + data.data.result.result[0].data[0] + '</span>' + '<span>' + data.data.result.result[0].data[1] + '</span>' +'<span>' + data.data.result.result[0].data[2] + '</span>'
+                    + '<span>' + data.data.result.result[0].data[3] + '</span>' + '<span>' + data.data.result.result[0].data[4] + '</span>' + '<span>' + data.data.result.result[0].data[5] + '</span>'
+                    + '<span>' + data.data.result.result[1].data[0] + '</span>';
+                    oDiv.html(html);
+                    calculate.append(oDiv);
+                }
+            });
+        },100);
+    });
+</script>
+</body>
+</html>
