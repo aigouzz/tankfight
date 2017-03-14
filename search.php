@@ -1,5 +1,5 @@
 <?php
-    $num = 23;
+    $num = 28;
     $time = 2017;
     $times = 0;
     $link = '';
@@ -16,7 +16,7 @@
             $num = 1;
             $time ++;
         }
-        if($time == 2017 && $num > 24){
+        if($time == 2017 && $num > 29){
             break;
         }
         $url = 'http://baidu.lecai.com/lottery/draw/ajax_get_detail.php?lottery_type=50&phase='.$link;
@@ -54,6 +54,9 @@
         preg_match_all("/\d{2}/",$match2[0][0],$match4);
         preg_match_all("/\"time_endsale\":\".{19}\"/",$con,$match5);
         $timestring = substr($match5[0][0],15);
+        if($timestring == '"0000-00-00 00:00:00"'){
+            $timestring = $link;
+        }
 
         $dbhost = 'localhost';  //mysql服务器主机地址
         $dbuser = 'root';      //mysql用户名
@@ -65,11 +68,11 @@
             echo('Could not connect: ' . $conn ->connect_error);
         }
         if(!preg_match("/\"data\":\[\]/",$con)){
-            $conn->query("INSERT INTO calculate (blue1, blue2, blue3, blue4 , blue5, blue6, red,time) VALUES (".intval($match3[0][0]).",".intval($match3[0][1]).",".intval($match3[0][2]).",".intval($match3[0][3]).",".intval($match3[0][4]).",".intval($match3[0][5]).",".intval($match4[0][0]).",".$timestring.")");
+            $conn->query("INSERT INTO caipiao (blue1, blue2, blue3, blue4 , blue5, blue6, red,time) VALUES (".intval($match3[0][0]).",".intval($match3[0][1]).",".intval($match3[0][2]).",".intval($match3[0][3]).",".intval($match3[0][4]).",".intval($match3[0][5]).",".intval($match4[0][0]).",".$timestring.")");
         }
         $conn->close();
 
         echo(!preg_match("/\"data\":\[\]/",$con));
-        var_dump($match5);
+        var_dump($timestring);
     }
 ?>
